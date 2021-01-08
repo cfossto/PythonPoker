@@ -44,7 +44,11 @@ class Cards():
 
     def draw_cards(self,deck, hand, amount):
 
-        hand.append(self.deal_cards(deck,amount))
+        pick = self.deal_cards(deck,amount)
+
+        for cards in pick:
+            hand.append(cards)
+
         return hand
 
     
@@ -55,3 +59,21 @@ class Cards():
         hand.pop()
 
         return hand
+
+    def total_of_hand(self,hand):
+        
+        totalList = []
+        for cards in hand:
+
+            accessCards = cards.split()
+            totalList.append(int(accessCards[0]))
+
+        total = 0
+
+        for num in totalList:
+
+            total += num
+
+        print("Sum of hand is: " + str(total))
+
+        return total
