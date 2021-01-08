@@ -5,18 +5,25 @@ class Cards():
 
     def make_deck(self):
 
-        colors = ["clubs","hearts","diamonds","spades"]
+        # Empty list of numbers. Filled in for loop
         numbers = []
+        colors = ["clubs","hearts","diamonds","spades"]
+        
+        # Fill Numbers list with numbers
         for num in range(1,14):
             numbers.append(num)
     
+
+        # Empty deck, filled with for loop later.
         deck = []
 
+        # Make 13 of each color and append to deck
         for nums in numbers:
             for color in colors:
                 deck.append("{} of {}".format(nums,color))
 
 
+        # Shuffle deck
         random.shuffle(deck)
         print("Deck - shuffled and ready! \n ")
 
@@ -36,11 +43,21 @@ class Cards():
 
         return card_round
 
+    def draw_cards(self,deck, hand, amount):
+
+        hand.append(self.deal_cards(deck,amount))
+        return hand
+
     
     def throw_cards(self,hand):
+
         
         hand.sort()
         hand.pop()
         hand.pop()
 
         return hand
+
+
+    def count_cards(self, hand):
+        
