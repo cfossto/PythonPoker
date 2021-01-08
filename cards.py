@@ -1,4 +1,5 @@
 import random
+from itertools import cycle
 
 class Cards():
 
@@ -15,14 +16,13 @@ class Cards():
     
 
         # Empty deck, filled with for loop later.
-        #deck = []
-
-        random.shuffle(colors)
-        random.shuffle(numbers)
+        deck = []
         # Make 13 of each color and append to deck
-        deck = dict(zip(colors,numbers))
+        for number in numbers:
+            for color in colors:
+                deck.append("{} of {}".format(number,color))
 
-
+        random.shuffle(deck)
 
         print("Deck - shuffled and ready! \n ")
 
