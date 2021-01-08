@@ -29,9 +29,18 @@ class Cards():
 
         for cards in range(0,amount_of_cards):
             card_round.append(deck[cards])
-            # print("Dealt: {}".format(deck[cards]))
+            print("Dealt: {}".format(deck[cards]))
             deck.pop(cards)
         
-        print("{} cards left.".format(len(deck)))
+        print("\n {} cards left. \n ".format(len(deck)))
 
         return card_round
+
+    
+    def throw_cards(self,hand):
+        
+        hand.sort()
+        hand.pop()
+        hand.pop()
+
+        return hand

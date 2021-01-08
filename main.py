@@ -3,12 +3,18 @@ from players import Players
 
 print("\nToday we play Poker! \n")
 
-slim = Players("Slim")
 luke = Players("Luke")
+slim = Players("Slim")
 
-deck = Cards().make_deck()
 
-print(deck)
+deck1 = Cards().make_deck()
 
-print("\n Today's players are {} and {}. Good luck! \n \n".format(slim.name,luke.name))
+print(deck1)
 
+luke.hand = Cards().deal_cards(deck1,5)
+slim.hand = Cards().deal_cards(deck1,5)
+
+print(luke.name)
+print(luke.hand)
+print(slim.name)
+print(slim.hand)
