@@ -1,8 +1,8 @@
 import random
-from itertools import cycle
 
 class Cards():
 
+    throwaway_heap = []
 
     def make_deck(self):
 
@@ -38,6 +38,8 @@ class Cards():
             print("Dealt: {}".format(deck[cards]))
             deck.pop(cards)
         
+        self.throwaway_heap.append(card_round)
+        
         print("\n {} cards left. \n ".format(len(deck)))
 
         return card_round
@@ -48,13 +50,20 @@ class Cards():
 
         for cards in pick:
             hand.append(cards)
+        
+        self.throwaway_heap.append(pick)
 
         return hand
 
     
-    def throw_cards(self,hand):
+    def throw_cards(self,hand,throw_count):
     
         hand.sort()
+
+        self.throwaway_heap.append(hand[-2:])
+        self.throwaway_heap.pop()
+        self.throwaway_heap.pop()
+
         hand.pop()
         hand.pop()
 
@@ -77,3 +86,15 @@ class Cards():
         print("Sum of hand is: " + str(total))
 
         return total
+
+    def card_end(self, deck):
+        
+        heap = self.throwaway_heap
+        
+        for card in heap:
+            deck.append(card)
+        
+        print(heap)
+        
+
+        print(len(deck))
