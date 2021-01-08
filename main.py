@@ -27,4 +27,3 @@ slim_total = Cards().total_of_hand(slim.hand)
 luke.game_end(luke.hand)
 slim.game_end(slim.hand)
 
-Cards().card_end(deck1)

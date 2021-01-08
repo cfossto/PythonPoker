@@ -50,8 +50,7 @@ class Cards():
 
         for cards in pick:
             hand.append(cards)
-        
-        self.throwaway_heap.append(pick)
+            self.throwaway_heap.append(cards)
 
         return hand
 
@@ -86,15 +85,3 @@ class Cards():
         print("Sum of hand is: " + str(total))
 
         return total
-
-    def card_end(self, deck):
-        
-        heap = self.throwaway_heap
-        
-        for card in heap:
-            deck.append(card)
-        
-        print(heap)
-        
-
-        print(len(deck))
