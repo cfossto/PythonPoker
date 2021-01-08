@@ -15,16 +15,15 @@ class Cards():
     
 
         # Empty deck, filled with for loop later.
-        deck = []
+        #deck = []
 
+        random.shuffle(colors)
+        random.shuffle(numbers)
         # Make 13 of each color and append to deck
-        for nums in numbers:
-            for color in colors:
-                deck.append("{} of {}".format(nums,color))
+        deck = dict(zip(colors,numbers))
 
 
-        # Shuffle deck
-        random.shuffle(deck)
+
         print("Deck - shuffled and ready! \n ")
 
         return deck
@@ -50,14 +49,9 @@ class Cards():
 
     
     def throw_cards(self,hand):
-
-        
+    
         hand.sort()
         hand.pop()
         hand.pop()
 
         return hand
-
-
-    def count_cards(self, hand):
-        
