@@ -28,7 +28,6 @@ class Cards():
 
         return deck
 
-
     def deal_cards(self,deck,amount_of_cards):
 
         card_round = []
@@ -37,8 +36,6 @@ class Cards():
             card_round.append(deck[cards])
             print("Dealt: {}".format(deck[cards]))
             deck.pop(cards)
-        
-        self.throwaway_heap.append(card_round)
         
         print("\n {} cards left. \n ".format(len(deck)))
 
@@ -50,7 +47,6 @@ class Cards():
 
         for cards in pick:
             hand.append(cards)
-            self.throwaway_heap.append(cards)
 
         return hand
 
@@ -58,13 +54,14 @@ class Cards():
     def throw_cards(self,hand,throw_count):
     
         hand.sort()
-
-        self.throwaway_heap.append(hand[-2:])
-        self.throwaway_heap.pop()
-        self.throwaway_heap.pop()
+        self.throwaway_heap.append(hand[-1])
+        self.throwaway_heap.append(hand[-2])
+        print("Heap in cards")
+        print(self.throwaway_heap)
 
         hand.pop()
         hand.pop()
+        
 
         return hand
 
@@ -76,12 +73,11 @@ class Cards():
             accessCards = cards.split()
             totalList.append(int(accessCards[0]))
 
+        news = [int(x) for x in totalList]
         total = 0
 
-        for num in totalList:
-
-            total += num
-
-        print("Sum of hand is: " + str(total))
-
+        for sums in totalList:
+            total += sums
+        
+        print("Sum of hand is: "+ str(total))
         return total
